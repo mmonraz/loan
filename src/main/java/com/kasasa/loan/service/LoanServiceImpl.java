@@ -15,16 +15,15 @@ public class LoanServiceImpl implements LoanService{
 
     @Override
     public Loan getLoan(Integer id) {
-        return loanRepository.findLoanById(id);
+
+        Loan loan = loanRepository.findLoanById(id);
+
+        loan.setApr(calculateAPR(loan));
+        return loan;
     }
 
     @Override
-    public Loan saveLoan(Loan loan) {
-
-        Double apr = calculateAPR(loan);
-
-        loan.setApr(apr);
-
+    public Loan saveLoan(Loan loan) {g
         return loanRepository.save(loan);
     }
 

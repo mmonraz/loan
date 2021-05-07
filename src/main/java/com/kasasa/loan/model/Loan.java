@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import java.util.Date;
 
 @Entity
@@ -25,5 +26,7 @@ public class Loan {
     private Double rate;
     private LoanType loanType;
     private Integer term;
+
+    @Transient
     private Double apr;
 }
