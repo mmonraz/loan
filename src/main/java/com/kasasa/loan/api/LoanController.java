@@ -2,6 +2,7 @@ package com.kasasa.loan.api;
 
 import com.kasasa.loan.model.Loan;
 import com.kasasa.loan.service.LoanService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,15 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/loans")
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class LoanController {
-    private LoanService loanService;
+    private final LoanService loanService;
 
     @GetMapping("/{id}")
     public Loan getLoan(@PathVariable("id") Integer id) {
         return loanService.getLoan(id);
     }
-
+    
     @PostMapping
     public Loan saveLoan(@RequestBody Loan loan) {
         return loanService.saveLoan(loan);

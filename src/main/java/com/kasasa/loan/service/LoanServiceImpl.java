@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class LoanServiceImpl implements LoanService{
+@RequiredArgsConstructor
+public class LoanServiceImpl implements LoanService {
 
-    private LoanRepository loanRepository;
+    private final LoanRepository loanRepository;
 
     @Override
     public Loan getLoan(Integer id) {
@@ -23,7 +23,7 @@ public class LoanServiceImpl implements LoanService{
     }
 
     @Override
-    public Loan saveLoan(Loan loan) {g
+    public Loan saveLoan(Loan loan) {
         return loanRepository.save(loan);
     }
 
