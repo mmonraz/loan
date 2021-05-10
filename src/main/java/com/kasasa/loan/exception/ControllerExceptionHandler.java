@@ -50,6 +50,12 @@ public class ControllerExceptionHandler {
         log.error("An error occurred procesing request" + ex);
     }
 
+    /**
+     * @Author Miguel Monraz
+     * @param exception
+     * @return An Error Object which contains the status plus the list of any invalid
+     *  field sent on the request body
+     */
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
     @ExceptionHandler(MethodArgumentNotValidException.class)

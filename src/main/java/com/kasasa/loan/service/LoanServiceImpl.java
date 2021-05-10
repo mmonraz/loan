@@ -5,17 +5,10 @@ import com.kasasa.loan.model.Loan;
 import com.kasasa.loan.model.LoanType;
 import com.kasasa.loan.repository.LoanRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
-import java.util.Date;
 import java.util.Locale;
 
 @Service
@@ -43,6 +36,12 @@ public class LoanServiceImpl implements LoanService {
         return loanRepository.save(loan);
     }
 
+    /**
+     * @Author Miguel Monraz
+     * @param loan
+     * @return Calculates the APR based on the given formula
+     * using the fields from the Loan
+     */
     public Double calculateAPR(Loan loan){
         Double apr = 0.00;
 

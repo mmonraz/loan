@@ -20,11 +20,22 @@ import javax.validation.Valid;
 public class LoanController {
     private final LoanService loanService;
 
+    /**
+     * @Author Miguel Monraz
+     * @param id
+     * @return The loan that corresponds to the given id
+     *  It calculates the APR based on the other fields
+     */
     @GetMapping("/{id}")
     public Loan getLoan(@PathVariable("id") Integer id) {
         return loanService.getLoan(id);
     }
 
+    /**
+     * @Author Miguel Monraz
+     * @param loan
+     * @return the newly created Loan
+     */
     @PostMapping
     public Loan saveLoan(@Valid @RequestBody Loan loan) {
         return loanService.saveLoan(loan);
