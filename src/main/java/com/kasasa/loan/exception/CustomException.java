@@ -1,7 +1,11 @@
 package com.kasasa.loan.exception;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
+import javax.validation.constraints.DecimalMax;
 import java.time.ZonedDateTime;
 
 /**
@@ -10,26 +14,10 @@ import java.time.ZonedDateTime;
  * when a 404, 400 or any exception happens which will be more useful
  * to the user
  */
+@Getter
+@AllArgsConstructor
 public class CustomException {
     private final String message;
     private final HttpStatus httpStatus;
     private final ZonedDateTime zonedDateTime;
-
-    public CustomException(String message, HttpStatus httpStatus, ZonedDateTime zonedDateTime) {
-        this.message = message;
-        this.httpStatus = httpStatus;
-        this.zonedDateTime = zonedDateTime;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public HttpStatus getHttpStatus() {
-        return httpStatus;
-    }
-
-    public ZonedDateTime getZonedDateTime() {
-        return zonedDateTime;
-    }
 }
