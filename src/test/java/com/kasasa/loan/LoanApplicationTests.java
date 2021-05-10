@@ -12,7 +12,6 @@ import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
@@ -25,17 +24,14 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = LoanController.class)
 public class LoanApplicationTests {
-
-    private final static DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
     @Autowired
     private MockMvc mockMvc;
 
@@ -65,7 +61,7 @@ public class LoanApplicationTests {
 
     @Test
     public void retrieveLoanDetails() throws Exception {
-        Mockito.when(loanService.getLoan(anyInt())).thenReturn(loan);
+        when(loanService.getLoan(anyInt())).thenReturn(loan);
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
                 "/loans/1").accept(
@@ -81,7 +77,7 @@ public class LoanApplicationTests {
 
     @Test
     public void createLoan() throws Exception {
-        Mockito.when(loanService.saveLoan(Mockito.any(Loan.class))).thenReturn(loan);
+        when(loanService.saveLoan(Mockito.any(Loan.class))).thenReturn(loan);
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .post("/loans")
