@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/loans")
 @RequiredArgsConstructor
@@ -22,9 +24,9 @@ public class LoanController {
     public Loan getLoan(@PathVariable("id") Integer id) {
         return loanService.getLoan(id);
     }
-    
+
     @PostMapping
-    public Loan saveLoan(@RequestBody Loan loan) {
+    public Loan saveLoan(@Valid @RequestBody Loan loan) {
         return loanService.saveLoan(loan);
     }
 
