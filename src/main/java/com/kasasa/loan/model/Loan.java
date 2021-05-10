@@ -34,6 +34,7 @@ public class Loan {
     private String name;
 
     @NotBlank(message = "SSN cannot be empty")
+    @Pattern(regexp = "^(?!000|666)[0-8][0-9]{2}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}$", message = "Please provide a valid SSN")
     private String ssn;
 
     @Past(message = "DOB cannot be happen on the future")
