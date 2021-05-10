@@ -7,11 +7,11 @@ Access as root to your mysql database and perform the below DCL queries
 Creating the database user
 CREATE USER 'testUser'@'localhost' IDENTIFIED BY 'password';
 
-As root still we create a database named podcast and we then execute the below query to grant the new user full access
-GRANT ALL PRIVILEGES ON podcast . * TO 'testUser'@'localhost';
+As root still we create a database named loan and we then execute the below query to grant the new user full access
+GRANT ALL PRIVILEGES ON loan . * TO 'testUser'@'localhost';
 
-If the port on your MySQL database different from the default port 3306 then please go to the resources folder and update the properties file to have the correct port number spring.datasource.url = jdbc:mysql://localhost:3306/podcast
+If the port on your MySQL database different from the default port 3306 then please go to the resources folder and update the properties file to have the correct port number spring.datasource.url = jdbc:mysql://localhost:3306/loan
 
-If all the previous step where done correctly you just need to run the application by PodcastApplication class main method
+If all the previous step where done correctly you just need to run the application by LoanApplication class main method
 
 The application will create all the required database tables
