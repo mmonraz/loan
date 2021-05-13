@@ -1,11 +1,9 @@
 package com.kasasa.loan.exception;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
-import javax.validation.constraints.DecimalMax;
 import java.time.ZonedDateTime;
 
 /**
