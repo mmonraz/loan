@@ -18,7 +18,7 @@ public class Error {
     private final String message;
     private List<ErrorDetail> fieldErrors = new ArrayList<>();
 
-    public void addFieldError(String fieldName, String defaultMessage) {q
+    public void addFieldError(String fieldName, String defaultMessage) {
         fieldErrors.add(new ErrorDetail(fieldName, defaultMessage));
     }
 }
